@@ -1,0 +1,91 @@
+*{/*Minden html elemre érvényes*/
+    margin:0;
+    padding:0;
+    box-sizing: border-box; /*width értékbe a padding és a border is beletartozik*/
+}
+
+header, nav, article, aside, footer {
+    border:1px solid gray;
+    padding:10px;
+}
+
+body{
+    background-color: brown;
+    width: 90%;
+    max-width:800px;
+    margin:auto;
+}
+main{
+    background-color:rgb(240, 232, 232);
+    /*szülőelem, ő tartalmazza a többit, amit el akarok rendezni a rácson*/
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto auto 50px;
+    grid-template-areas: 
+        "h h h"
+        "n n n "
+        "a a a "
+        "j j j "
+        "b b b "
+        "f f f";
+    
+}
+header{
+    grid-area: h;
+}
+nav{
+    grid-area: n;
+}
+article{
+    grid-area: a;
+}
+footer{
+    grid-area: f;
+}
+#bal{
+    grid-area: b;
+}
+#jobb{
+    grid-area: j;
+}
+
+/*töréspont media Qerryvel*/
+
+@media screen and ( max-width: 600px) {
+    body{
+        width: 100% ;
+        font-size:1vw;
+    }
+    main{
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: 
+        "h"
+        "n "
+        "a"
+        "j "
+        "b "
+        "f";
+        
+        
+    }
+
+    @media screen and ( max-width: 700px) {
+        body{
+            width: 100% ;
+            font-size:2vw;
+        }
+        main{
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 50px auto auto auto 50px;
+            grid-template-areas: 
+            "h h"
+            "n n"
+            "a j"
+            "b b"
+            "f f";
+            
+            
+        }
+
+
+}
